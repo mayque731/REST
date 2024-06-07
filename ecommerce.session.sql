@@ -1,1 +1,1 @@
-
+DESCRIBE usuarios;
