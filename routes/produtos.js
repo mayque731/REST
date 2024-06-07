@@ -1,6 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const mysql = require('../mysql').pool;
+const multer = require ('multer'); //para tratamento do formdata
+const upload = multer({dest: 'uploads/'}); //destino do arquivo
+
+//const storage = multer.diskStorage({
+//    destination: function(req, file, cb){
+//       cb(null, './uploads/');
+//   },
+//  filename: function(req, file, cb){
+//       cb(null, new Date().toISOString() + file.originalname);
+//   }
+//});
+
+//const upload = multer({storage: storage});
+
 
 //retorna todos os produtos
 router.get('/', (req, res, next) => {
@@ -35,8 +49,8 @@ router.get('/', (req, res, next) => {
 });
 
 //insere um produto
-router.post('/', (req, res, next) => {
-   
+router.post('/', upload.single('produto_imagem'),(req, res, next) => {
+   console.log(req.file);
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error }) }
         conn.query('INSERT INTO produtos (nome, preco) VALUES (?,?)',
