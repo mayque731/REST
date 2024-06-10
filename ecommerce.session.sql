@@ -1,1 +1,1 @@
-DESCRIBE usuarios;
+SELECT * from usuarios;
