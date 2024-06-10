@@ -2,8 +2,7 @@ const express = require('express');
 const router = express.Router();
 const mysql = require('../mysql').pool;
 const multer = require ('multer'); //para tratamento do formdata
-//const upload = multer({dest: 'uploads/'}); //destino do arquivo
-
+const login = require('../middleware/login');
 
 const storage = multer.diskStorage({
     destination: function(req, file, cb){
@@ -67,7 +66,8 @@ router.get('/', (req, res, next) => {
 });
 
 //insere um produto
-router.post('/', upload.single('produto_imagem'),(req, res, next) => {
+//middleware = metodos que sao executados na rota antes de chegar na funcao final
+router.post('/', login.obrigatorio,upload.single('produto_imagem'),(req, res, next) => {
    //console.log(req.file);
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error }) }
@@ -135,7 +135,7 @@ router.get('/:id_produto', (req, res, next) => {
 });
 
 //atualizacao de produto
-router.patch('/', (req, res, next) => {
+router.patch('/',login.obrigatorio, (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error }) }
         conn.query(`UPDATE produtos
@@ -170,7 +170,7 @@ router.patch('/', (req, res, next) => {
     });
 
 //exclusao de produto
-router.delete('/', (req, res, next) => {
+router.delete('/',login.obrigatorio, (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error }) }
         conn.query(`DELETE FROM produtos WHERE id_produto = ?`,[req.body.id_produto],
