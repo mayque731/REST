@@ -145,23 +145,23 @@ exports.deleteProdutos = async (req, res, next) => {
 exports.postImagem = async (req, res, next) => {
     try{ 
         const query = 'INSERT INTO imagem_produto (id_produto, caminho) VALUES (?,?)';
-        const result = mysql.execute(query, [
+        const result = await mysql.execute(query, [
             req.params.id_produto, 
             req.file.path
         ]);
         const response = {
             mensagem: 'produto inserido com sucesso',
             produtoCriado: {
-                 id_produto: req.params.id_produto,
+                 id_produto: parseInt(req.params.id_produto),
                  id_imagem: result.insertId,
                  nome: req.body.nome,
                  preco: req.body.preco,
-                 imagem_produto: req.file.path
-                //  request: {
-                //    tipo: 'GET',
-                //    descricao: 'Insere um produtos',
-                //    url: 'http://localhost:3000/produtos'
-                //  }
+                 imagem_produto: req.file.path,
+                 request: {
+                   tipo: 'GET',
+                   descricao: 'Insere um produtos',
+                   url: 'http://localhost:3000/produtos' + req.params.id_produto + '/imagens'
+                 }
             }
       }
       return res.status(201).send(response);
@@ -178,9 +178,9 @@ exports.getImagens = async (req,res,next)=>{
             quantidade: result.length,
             produtos: result.map(img => {
                 return {
-                    id_produto: parseInt(img.id_produto),
-                    id_imagem: img.id_produto,
-                    caminho: process.env.API_URL + img.caminho
+                    id_produto: parseInt(req.params.id_produto),
+                    id_imagem: img.id_imagem,
+                    caminho: 'http://localhost:3000/'+ img.caminho
                    
                 }
             })
