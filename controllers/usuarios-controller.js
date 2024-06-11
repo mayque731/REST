@@ -53,7 +53,7 @@ exports.loginUsuario = (req, res, next) => {
                         email: results[0].email
                     }, process.env.JWT_KEY,
                     {
-                        expiresIn: "1h"
+                        expiresIn: "7d"
                     });
                     return res.status(200).send({ 
                         mensagem: 'Autenticado com sucesso',
