@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const multer = require ('multer'); //para tratamento do formdata
-const login = require('../middleware/login');
+const login = require('../middleware/login');//metodos que sao executados na rota antes de chegar na funcao final
 const produtosController = require('../controllers/produtos-controller');
 
 const storage = multer.diskStorage({
@@ -22,7 +22,6 @@ const fileFilter = (req, file, cb) => {
 
 }
 
-
 const upload = multer({
     storage: storage,
     limits:{
@@ -35,14 +34,13 @@ const upload = multer({
 router.get('/', produtosController.getProdutos );
 
 //insere um produto
-//middleware = metodos que sao executados na rota antes de chegar na funcao final
 router.post('/', login.obrigatorio,upload.single('produto_imagem'), produtosController.postProdutos);
 
 //retorna um produto
 router.get('/:id_produto', produtosController.getUmProduto);
 
 //atualizacao de produto
-router.patch('/',login.obrigatorio, );
+router.patch('/',login.obrigatorio, produtosController.patchProdutos);
     
 
 //exclusao de produto

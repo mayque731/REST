@@ -66,7 +66,8 @@ exports.getUmProduto = (req, res, next) => {
     mysql.getConnection((error, conn) => {
         if (error) { return res.status(500).send({ error: error}) }
         conn.query(
-            'SELECT * FROM produtos WHERE id_produto = ?',
+            'SELECT * FROM produtos WHERE id_produto = ?;',
+            [req.params.id_produto],
                 (error, resultado, fields) => {
                 if (error) { return res.status(500).send({ error: error }) }
                 if (resultado.length == 0) {
@@ -83,8 +84,8 @@ exports.getUmProduto = (req, res, next) => {
                     imagem_produto: resultado[0].imagem_produto,
                      request: {
                        tipo: 'GET',
-                       descricao: 'Retorna um produto',
-                       url: 'http://localhost:3000/produtos'+prod.id_produto
+                       descricao: 'Retorna todos produtos',
+                       url: 'http://localhost:3000/produtos'
                      }
                 }
           }   
