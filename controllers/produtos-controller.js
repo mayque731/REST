@@ -23,9 +23,7 @@ exports.getProdutos = async (req,res,next)=>{
     }catch(error){
         return res.status(500).send({error: error});
     }
-    // }).catch((error)=>{
-    //     return res.status(500).send({error: error});
-    // });
+    
 };
 
 exports.postProdutos = async (req, res, next) => {
@@ -139,6 +137,55 @@ exports.deleteProdutos = async (req, res, next) => {
             }
       }
       return res.status(201).send(response);
+    }catch(error){
+        return res.status(500).send({error: error});
+    }
+};
+
+exports.postImagem = async (req, res, next) => {
+    try{ 
+        const query = 'INSERT INTO imagem_produto (id_produto, caminho) VALUES (?,?)';
+        const result = mysql.execute(query, [
+            req.params.id_produto, 
+            req.file.path
+        ]);
+        const response = {
+            mensagem: 'produto inserido com sucesso',
+            produtoCriado: {
+                 id_produto: req.params.id_produto,
+                 id_imagem: result.insertId,
+                 nome: req.body.nome,
+                 preco: req.body.preco,
+                 imagem_produto: req.file.path
+                //  request: {
+                //    tipo: 'GET',
+                //    descricao: 'Insere um produtos',
+                //    url: 'http://localhost:3000/produtos'
+                //  }
+            }
+      }
+      return res.status(201).send(response);
+    }catch(error){
+        return res.status(500).send({error: error});
+    }
+};
+
+exports.getImagens = async (req,res,next)=>{
+    try{
+        const query = 'SELECT * FROM imagem_produto WHERE id_produto = ?';
+        const result = await mysql.execute(query, [req.params.id_produto])
+        const response ={
+            quantidade: result.length,
+            produtos: result.map(img => {
+                return {
+                    id_produto: parseInt(img.id_produto),
+                    id_imagem: img.id_produto,
+                    caminho: process.env.API_URL + img.caminho
+                   
+                }
+            })
+        }
+        return res.status(200).send(response);  
     }catch(error){
         return res.status(500).send({error: error});
     }

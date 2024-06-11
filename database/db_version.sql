@@ -1,3 +1,4 @@
+--11/06
 CREATE TABLE IF NOT EXISTS imagem_produto (
     id_imagem INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
     id_produto INT,

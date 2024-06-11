@@ -34,7 +34,12 @@ const upload = multer({
 router.get('/', produtosController.getProdutos );
 
 //insere um produto
-router.post('/', login.obrigatorio,upload.single('produto_imagem'), produtosController.postProdutos);
+router.post(
+    '/', 
+    login.obrigatorio,
+    upload.single('produto_imagem'), 
+    produtosController.postProdutos
+);
 
 //retorna um produto
 router.get('/:id_produto', produtosController.getUmProduto);
@@ -45,4 +50,19 @@ router.patch('/',login.obrigatorio, produtosController.patchProdutos);
 
 //exclusao de produto
 router.delete('/',login.obrigatorio, produtosController.deleteProdutos);
+
+//insere imagem de um produto
+router.post(
+    '/:id_produto/imagem',
+    login.obrigatorio,
+    upload.single('produto_imagem'),
+    produtosController.postImagem
+);
+
+//retorna imagens de um produto
+router.get(
+    '/:id_produto/imagens',
+    produtosController.getImagens)
+
+
 module.exports = router;
