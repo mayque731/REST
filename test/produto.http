@@ -4,7 +4,7 @@ Content-Type: application/json
 ###
 
 # Retorna detalhes de um produto
-GET http://localhost:3000/produtos/13
+GET http://localhost:3000/produtos/2
 Content-Type: application/json
 ###
 

@@ -1,7 +1,7 @@
 var mysql = require('mysql');
 
 var pool = mysql.createPool({
-    "connectionLimit": 100,
+    "connectionLimit": 1000,
     "user": "root", //process.env.MYSQL_USER
     "password":"root",//process.env.MYSQL_PASSWORD
     "database":"ecommerce",//process.env.MYSQL_DATABASE

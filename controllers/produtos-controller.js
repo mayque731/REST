@@ -56,10 +56,10 @@ exports.postProdutos = async (req, res, next) => {
 
 exports.getUmProduto = async(req, res, next) => {
     try{
-        const query = 'SELECT * FROM produtos WHERE id_produto = ?;';
-        const result = await mysql.execute(query, [req.params.id_produto]);
+        const queryUP = 'SELECT * FROM produtos WHERE id_produto = ?;';
+        const resultUP = await mysql.execute(queryUP, [req.params.id_produto]);
         
-        if (result.length == 0) {
+        if (resultUP.length == 0) {
             return res.status(404).send({
                 mensagem: 'Não foi encontrado produto com este ID'
             });
@@ -68,10 +68,10 @@ exports.getUmProduto = async(req, res, next) => {
         const response ={
                 
             produto: {
-                id_produto: resultado[0].id_produto,
-                nome: resultado[0].nome,
-                preco: resultado[0].preco,
-                imagem_produto: resultado[0].imagem_produto,
+                id_produto: resultUP[0].id_produto,
+                nome: resultUP[0].nome,
+                preco: resultUP[0].preco,
+                imagem_produto: resultUP[0].imagem_produto,
                  request: {
                    tipo: 'GET',
                    descricao: 'Retorna todos produtos',
