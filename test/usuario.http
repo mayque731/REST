@@ -3,8 +3,8 @@ POST http://localhost:3000/usuarios/cadastro
 Content-Type: application/json
 
 {
-    "email" : "mayque.oliveira@souuni.com",
-    "password" : "senhaforte"
+    "email" : "fran.oliveira@souuni.com",
+    "senha" : "senhaforte"
 }
 
 ###
@@ -14,8 +14,8 @@ POST http://localhost:3000/usuarios/login
 Content-Type: application/json
 
 {
-    "email" : "mayque.oliveira@souuni.com",
-    "password" : "senhaforte"
+    "email" : "fran.oliveira@souuni.com",
+    "senha" : "senhaforte"
 }
 
 ###

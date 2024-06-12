@@ -1,8 +1,9 @@
-const mysql = require("../mysql").pool;
+const mysql = require("../mysql");
 
-exports.getPedidos = (req, res, next) => {
+exports.getPedidos = async (req, res, next) => {
   try {
   } catch (error) {
+    console.log(error);
     return res.status(500).send({ error: error });
   }
   mysql.getConnection((error, conn) => {
@@ -78,6 +79,7 @@ exports.postPedidos = async(req, res, next) => {
     };
           res.status(201).send(response);
   } catch (error) {
+    console.log(error);
     return res.status(500).send({ error: error });
   }  
 };
@@ -107,6 +109,7 @@ exports.getUmPedido = async(req, res, next) => {
     };
     return res.status(201).send(response);
   } catch (error) {
+    console.log(error);
     return res.status(500).send({ error: error });
   }  
 };
@@ -138,6 +141,7 @@ exports.deletePedido = async(req, res, next) => {
     };
     return res.status(202).send({ response });
   } catch (error) {
+    console.log(error);
     return res.status(500).send({ error: error });
   }
 };
