@@ -1,3 +1,5 @@
+![Logo](https://lh3.googleusercontent.com/p/AF1QipNeh3TtjOzTz7CU1OiOTvM6NQ-TKjjf7CYGfr3P=s280-w280-h150)
+
 ## - API Central de Assinante Unificada
 
 Essa API servira de base para implementação na central de assinante unificada da UNI Internet, nesse momento ela esta preparada para listar informações do cliente, contratos, e financeiro do cliente, com boletos mensal e avulsos, boletos esses que ja terão todas as informações e opções de pagamento, inclusive a opçõe de PIX copia e cola e QRCode.
