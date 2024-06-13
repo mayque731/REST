@@ -53,7 +53,7 @@ router.delete('/',login.obrigatorio, produtosController.deleteProdutos);
 
 //insere imagem de um produto
 router.post(
-    '/:id_produto/imagem',
+    '/:id_produto/produto_imagem',
     login.obrigatorio,
     upload.single('produto_imagem'),
     produtosController.postImagem

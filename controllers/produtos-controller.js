@@ -8,9 +8,10 @@ exports.getProdutos = async (req,res,next)=>{
             produtos: result.map(prod => {
                 return {
                     id_produto: prod.id_produto,
-                    nome: prod.nome,
-                    preco: prod.preco,
+                    nome: prod.nome_produto,
+                    preco: prod.preco_produto,
                     imagem_produto: prod.imagem_produto,
+                    id_categoria: prod.id_categoria,
                     request: {
                         tipo: 'GET',
                         descricao: 'Retorna todos produtos',
@@ -21,6 +22,7 @@ exports.getProdutos = async (req,res,next)=>{
         }
         return res.status(200).send(response);  
     }catch(error){
+        console.log(error);
         return res.status(500).send({error: error});
     }
     
@@ -28,12 +30,14 @@ exports.getProdutos = async (req,res,next)=>{
 
 exports.postProdutos = async (req, res, next) => {
     try{ 
-        const query = 'INSERT INTO produtos (nome, preco, imagem_produto) VALUES (?,?,?)';
+        const query = 'INSERT INTO produtos (nome_produto, preco_produto, imagem_produto, id_categoria) VALUES (?,?,?,?)';
         const result = mysql.execute(query, [
             req.body.nome, 
             req.body.preco, 
-            req.file.path
+            req.file.path,
+            req.body.id_categoria
         ]);
+        console.log(result.insertId);
         const response = {
             mensagem: 'produto inserido com sucesso',
             produtoCriado: {
@@ -41,15 +45,17 @@ exports.postProdutos = async (req, res, next) => {
                  nome: req.body.nome,
                  preco: req.body.preco,
                  imagem_produto: req.file.path,
+                 id_categoria : req.body.id_categoria,
                  request: {
                    tipo: 'GET',
-                   descricao: 'Insere um produtos',
+                   descricao: 'Insere um produto',
                    url: 'http://localhost:3000/produtos'
                  }
             }
       }
       return res.status(201).send(response);
     }catch(error){
+        console.log(error);
         return res.status(500).send({error: error});
     }
 };
@@ -72,6 +78,7 @@ exports.getUmProduto = async(req, res, next) => {
                 nome: resultUP[0].nome,
                 preco: resultUP[0].preco,
                 imagem_produto: resultUP[0].imagem_produto,
+                id_categoria: resultUP[0].id_categoria,
                  request: {
                    tipo: 'GET',
                    descricao: 'Retorna todos produtos',
@@ -144,7 +151,7 @@ exports.deleteProdutos = async (req, res, next) => {
 
 exports.postImagem = async (req, res, next) => {
     try{ 
-        const query = 'INSERT INTO imagem_produto (id_produto, caminho) VALUES (?,?)';
+        const query = 'INSERT INTO imagem_produto (id_produto, caminho_imagem) VALUES (?,?)';
         const result = await mysql.execute(query, [
             req.params.id_produto, 
             req.file.path

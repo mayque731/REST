@@ -2,11 +2,11 @@ const mysql = require("../mysql");
 
 exports.getPedidos = async (req, res, next) => {
   try {
-    const query = `SELECT pedidos.id_pedidos,
-                    pedidos.quantidade,
+    const query = `SELECT pedidos.id_pedido,
+                    pedidos.quantidade_pedido,
                     produtos.id_produto,
-                    produtos.nome,
-                    produtos.preco
+                    produtos.nome_pedido,
+                    produtos.preco_pedido
               FROM  pedidos
         INNER JOIN  produtos
                 ON  produtos.id_produto = pedidos.id_produto;`
@@ -47,7 +47,7 @@ exports.postPedidos = async(req, res, next) => {
       });
     }
 
-    const queryPedido = "INSERT INTO pedidos (quantidade, id_produto) VALUES (?,?)";
+    const queryPedido = "INSERT INTO pedidos (quantidade_pedido, id_produto) VALUES (?,?)";
     const resultPedido = await mysql.execute(queryPedido, [
       req.body.quantidade,
       req.body.id_produto,
@@ -58,7 +58,7 @@ exports.postPedidos = async(req, res, next) => {
       produtoCriado: {
         id_pedido: resultPedido.id_pedido,
         id_produto: req.body.id_produto,
-        quantidade: req.body.quantidade,
+        quantidade: req.body.quantidade_pedido,
         request: {
           tipo: "GET",
           descricao: "Retorna todos pedidos",
@@ -75,8 +75,8 @@ exports.postPedidos = async(req, res, next) => {
 
 exports.getUmPedido = async(req, res, next) => {
   try {
-    const query = "SELECT * FROM pedidos WHERE id_pedidos = ?";
-    const result = await mysql.execute(query, [req.params.id_pedidos]);
+    const query = "SELECT * FROM pedidos WHERE id_pedido = ?";
+    const result = await mysql.execute(query, [req.params.id_pedido]);
 
     if (result.length == 0) {
       return res.status(404).send({
@@ -88,7 +88,7 @@ exports.getUmPedido = async(req, res, next) => {
       pedido: {
         id_pedido: result[0].id_pedido,
         id_produto: result[0].id_produto,
-        quantidade: result[0].quantidade,
+        quantidade: result[0].quantidade_pedido,
         request: {
           tipo: "GET",
           descricao: "Retorna um pedido",
@@ -114,8 +114,8 @@ exports.deletePedido = async(req, res, next) => {
     //   });
     // }
 
-    const query = "DELETE FROM pedidos WHERE id_pedidos = ?";
-    await mysql.execute(query, [req.params.id_pedidos]);
+    const query = "DELETE FROM pedidos WHERE id_pedido = ?";
+    await mysql.execute(query, [req.params.id_pedido]);
     const response = {
       mensagem: "pedido removido com sucesso",
       request: {

@@ -11,7 +11,7 @@ Content-Type: application/json
 # Altera um produto
 PATCH http://localhost:3000/produtos/1
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2lhbm9AZ21haWwuY29tIiwiaWF0IjoxNTk1MTAwMzkwLCJleHAiOjE1OTUxMDM5OTB9.9-wb_FgeE-fy6sk3vhwoluYY2LK5wfqHq4Yniv4f76M
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJlbWFpbCI6ImZyYW4ub2xpdmVpcmFAc291dW5pLmNvbSIsImlhdCI6MTcxODI5MDcwMCwiZXhwIjoxNzE4ODk1NTAwfQ.wcWeaFzao1kwytDuGz_nlo1gbYFlV4Wd3-OajGBii6w
 
 {
     "name" : "Caneta Azul Alterada",
@@ -22,13 +22,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2lhb
 # Remove um produto
 DELETE http://localhost:3000/produtos/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2lhbm9AZ21haWwuY29tIiwiaWF0IjoxNTk1MTAwMzkwLCJleHAiOjE1OTUxMDM5OTB9.9-wb_FgeE-fy6sk3vhwoluYY2LK5wfqHq4Yniv4f76M
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJlbWFpbCI6ImZyYW4ub2xpdmVpcmFAc291dW5pLmNvbSIsImlhdCI6MTcxODI5MDcwMCwiZXhwIjoxNzE4ODk1NTAwfQ.wcWeaFzao1kwytDuGz_nlo1gbYFlV4Wd3-OajGBii6w
 ###
 
 # Remove um produto
 DELETE http://localhost:3000/produtos/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imx1Y2lhbm9AZ21haWwuY29tIiwiaWF0IjoxNTk1MTAwMzkwLCJleHAiOjE1OTUxMDM5OTB9.9-wb_FgeE-fy6sk3vhwoluYY2LK5wfqHq4Yniv4f76M
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJlbWFpbCI6ImZyYW4ub2xpdmVpcmFAc291dW5pLmNvbSIsImlhdCI6MTcxODI5MDcwMCwiZXhwIjoxNzE4ODk1NTAwfQ.wcWeaFzao1kwytDuGz_nlo1gbYFlV4Wd3-OajGBii6w
 ###
 
 
@@ -38,6 +38,5 @@ Content-Type: multipart/form-data;
 
 -------
 Content-Disposition: form-data; nome="caneta"; preco="10.99; "
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoyMiwiZW1haWwiOiJmZXJuYW5kby5tYXJhbnNhdHRvQGdtYWlsLmNvbSIsImlhdCI6MTU5NDg0Mzg2MiwiZXhwIjoxNTk0ODQ3NDYyfQ.KSSKiAfIfCpBWWA-j_dL40c-t2YY1yk2wKIq8mGfQJU
-
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJlbWFpbCI6ImZyYW4ub2xpdmVpcmFAc291dW5pLmNvbSIsImlhdCI6MTcxODI5MDcwMCwiZXhwIjoxNzE4ODk1NTAwfQ.wcWeaFzao1kwytDuGz_nlo1gbYFlV4Wd3-OajGBii6w
 
