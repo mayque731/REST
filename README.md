@@ -27,11 +27,26 @@ Essa API servira de base para implementação na central de assinante unificada 
 
 
 |—— controllers
+|    |—— categorias-controller.js
+|    |—— imagens-controller.js
+|    |—— pedidos-controller.js
+|    |—— produtos-controller.js
+|    |—— usuarios-controller.js
 |—— database
+|    |—— bd.sql
 |—— middleware
+|    |—— login.js
 |—— routes
-|    |—— boletos.js
+|    |—— categorias.js
+|    |—— imagens.js
+|    |—— pedidos.js
+|    |—— produtos.js
+|    |—— usuarios.js
 |—— test
+|    |—— categoria.http
+|    |—— pedido.http
+|    |—— produto.http
+|    |—— usuario.http
 |—— uploads
 |── .env
 ├── .gitignore
