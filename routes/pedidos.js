@@ -12,6 +12,6 @@ router.post('/', pedidosController.postPedidos);
 router.get('/:id_pedidos', pedidosController.getUmPedido);
 
 //exclusao de pedido
-router.delete('/', pedidosController.deletePedido);
+router.delete('/:id_pedidos', pedidosController.deletePedido);
 
 module.exports = router;

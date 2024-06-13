@@ -1,8 +1,6 @@
 const mysql = require('../mysql');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
-chave = process.env.JWT_KEY;
 
 exports.cadastroUsuario = async (req, res, next) => {
     try{
@@ -31,6 +29,7 @@ exports.cadastroUsuario = async (req, res, next) => {
         }
         return res.status(201).send(response);
     }catch(error) {
+        console.log(error);
         return res.status(500).send({ error: error });
     }
 };
