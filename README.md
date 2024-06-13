@@ -2,11 +2,15 @@
 
 Essa API servira de base para implementação na central de assinante unificada da UNI Internet, nesse momento ela esta preparada para listar informações do cliente, contratos, e financeiro do cliente, com boletos mensal e avulsos, boletos esses que ja terão todas as informações e opções de pagamento, inclusive a opçõe de PIX copia e cola e QRCode.
 
+##
+
 ## Instalação & Dependencias
 
 
 1 - npm init -y
+
 2 - npm install request-promise request jsonwebtoken express bcrypt
+
 3 - npm install nodemon -D
 
 
@@ -22,35 +26,29 @@ Essa API servira de base para implementação na central de assinante unificada 
 ## Hierarquia dos Diretorios
 
 
-|—— .env.example
-|—— .gitattributes
-|—— .gitignore
-|—— requestPostman
-|    |—— postman_collection.json
+|—— controllers
+|—— database
+|—— middleware
 |—— routes
 |    |—— boletos.js
-|    |—— boletosPagos.js
-|    |—— login.js
-|    |—— me.js
-|    |—— pix.js
-|—— server.js
-|—— utils
-|   ├── encrypt.js
-|   ├── decrypt.js
-|   ├── getCliente.js
-|   ├── getContratos.js
-|   ├── getFaturas.js
-|   ├── getFaturasPagas.js
-|   ├── getListaPix.js
-|   ├── getPix.js
-|   ├── fetchData.js
-|   └── index.js
+|—— test
+|—— uploads
+|── .env
+├── .gitignore
+├── app.js
+├── ecommerce.session.sql
+├── mysql.js
+├── nodemon.json
+├── package-lock.json
+├── package.json
+├── README.md
+└── server.js
 
 
 ## Documentação da API
 
 http
-  POST /auth/login
+  POST /usuarios/cadastro
 
 
 | Parâmetro | Tipo     | Descrição                                                                                                                                   |
