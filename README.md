@@ -64,8 +64,8 @@ http
 
 | Parâmetro | Tipo     | Descrição                                                                                                                                   |
 | :-------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
-| email   | texto | Email do usuario, usado na função de login 
-| senha   | texto | Senha de usuario, usada na função de login                             
+| email   | texto | Email do usuario, definido na função de cadastro
+| senha   | texto | Senha de usuario, definido na função de cadastro                            
 
 ## 
 
@@ -73,11 +73,11 @@ http
 
 http
   GET /categorias
-
+    Retorna todas categorias, não requer autenticação 
 
 | Parâmetro | Tipo     | Descrição                                                                                                                                   |
 | :-------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
-                           
+                            
 
 ## 
 http
@@ -90,3 +90,92 @@ http
 | nome   | texto | Nome da categoria sendo inserida                             
 
 ## 
+
+## Produtos
+
+http
+  GET /produtos
+    Retorna todos produtos, não requer autenticação   
+
+| Parâmetro | Tipo     | Descrição                                                                                                                                   |
+| :-------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+##
+http
+  GET /produtos/id
+    Retorna dado de um especifico produto, não requer autenticação   
+
+| Parâmetro | Tipo     | Descrição                                                                                                                                   |
+| :-------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+                          
+
+## 
+http
+  POST /produtos
+    inserede produto, requer autenticação
+
+| Parâmetro | Tipo     | Descrição                                                                                                                                   |
+| :-------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| Authorization   | Bearer | Token retornado da função de login 
+| imagem   | arquivo | arquivo da imagem do produto                             
+| nome   | texto | Nome do produto sendo inserido                            
+| preco   | texto | preco do produto sendo inserido                         
+| categoria   | texto | id da categoria do produto sendo inserido                            
+
+## 
+http
+  PATCH /produtos/id
+    altera nome e preco de um produto
+
+| Parâmetro | Tipo     | Descrição                                                                                                                                   |
+| :-------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| Authorization   | Bearer | Token retornado da função de login                             
+| nome   | texto | Novo nome do produto sendo alterado                            
+| preco   | texto | Novo preco do produto sendo alterado                     
+
+## 
+http
+  DELETE /produtos/id
+    deleta um preduto, requer autenticação
+
+| Parâmetro | Tipo     | Descrição                                                                                                                                   |
+| :-------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| Authorization   | Bearer | Token retornado da função de login 
+                         
+
+## 
+
+## Pedidos
+
+http
+  GET /pedidos
+    Retorna todos pedidos, não requer autenticação   
+
+| Parâmetro | Tipo     | Descrição                                                                                                                                   |
+| :-------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+
+##
+http
+  GET /pedidos/id
+    Retorna dados de um especifico pedido, não requer autenticação   
+
+| Parâmetro | Tipo     | Descrição                                                                                                                                   |
+| :-------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+                          
+
+## 
+http
+  POST /pedidos
+    insere um pedido, não requer autenticação   
+
+| Parâmetro | Tipo     | Descrição                                                                                                                                   |
+| :-------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| id_produto   | texto | id do produto a ser pedido                            
+| quantidade_produto   | texto | quantidade a ser pedida do produto    
+
+## 
+http
+  DELETE /pedidos/id
+    deleta um pedido, nao requer autenticação
+
+| Parâmetro | Tipo     | Descrição                                                                                                                                   |
+| :-------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
