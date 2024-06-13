@@ -5,8 +5,8 @@ exports.getPedidos = async (req, res, next) => {
     const query = `SELECT pedidos.id_pedido,
                     pedidos.quantidade_pedido,
                     produtos.id_produto,
-                    produtos.nome_pedido,
-                    produtos.preco_pedido
+                    produtos.nome_produto,
+                    produtos.preco_produto
               FROM  pedidos
         INNER JOIN  produtos
                 ON  produtos.id_produto = pedidos.id_produto;`
@@ -14,12 +14,12 @@ exports.getPedidos = async (req, res, next) => {
     const response = {
       pedidos: result.map((pedido) => {
         return {
-          id_pedido: pedido.id_pedidos,
-          quantidade: pedido.quantidade,
+          id_pedido: pedido.id_pedido,
+          quantidade: pedido.quantidade_pedido,
           produto: {
             id_produto: pedido.id_produto,
-            nome: pedido.nome,
-            preco: pedido.preco,
+            nome: pedido.nome_produto,
+            preco: pedido.preco_produto,
           },
           request: {
             tipo: "GET",

@@ -9,9 +9,9 @@ router.get('/', pedidosController.getPedidos);
 router.post('/', pedidosController.postPedidos);
 
 //retorna pedido exclusivo
-router.get('/:id_pedidos', pedidosController.getUmPedido);
+router.get('/:id_pedido', pedidosController.getUmPedido);
 
 //exclusao de pedido
-router.delete('/:id_pedidos', pedidosController.deletePedido);
+router.delete('/:id_pedido', pedidosController.deletePedido);
 
 module.exports = router;

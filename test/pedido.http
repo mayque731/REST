@@ -8,17 +8,17 @@ POST http://localhost:3000/pedidos
 Content-Type: application/json
 
 {
-    "id_produto": 20,
-    "quantidade": 2
+    "id_produto": 3,
+    "quantidade": 4
 }
 ###
 
 # Get um pedido
-GET http://localhost:3000/pedidos/5
+GET http://localhost:3000/pedidos/2
 Content-Type: application/json
 ###
 
 # Remove um pedido
-DELETE http://localhost:3000/pedidos/5
+DELETE http://localhost:3000/pedidos/2
 Content-Type: application/json
 ###
