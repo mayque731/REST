@@ -14,6 +14,12 @@ exports.cadastroUsuario = async (req, res, next) => {
         //criptografando a senha
         const hash = bcrypt.hashSync(req.body.senha, 10);
 
+        // const usuarios = req.body.usuarios.map(usuario => [
+        //     usuario.email,
+        //     bcrypt.hashSync(usuario.senha, 10)
+        // ])
+        // const query = 'INSERT INTO usuarios (email_usuario, senha_usuario) VALUES ?';
+        // const results = await mysql.execute(query, [usuarios]);
 
         const query = 'INSERT INTO usuarios (email_usuario, senha_usuario) VALUES (?,?)';
         const results = await mysql.execute(query, [req.body.email, hash]);

@@ -7,6 +7,8 @@
         "MYSQL_PORT" : "3306",
 
         "JWT_KEY" : "segredo",
-        "URL_API" : "http://localhost:3000/"
+        "URL_API" : "http://localhost:3000/",
+
+        "NGROK_AUTHTOKEN":"2hYNPQu5APfdtD4bOxxeoHw6UWh_7q3odi56AZm2hiRuEBJLY"
     }
 }
