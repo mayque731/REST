@@ -46,6 +46,7 @@ Essa API servira de base para implementação na central de assinante unificada 
 
 
 ## Documentação da API
+## Usuarios
 
 http
   POST /usuarios/cadastro
@@ -53,69 +54,39 @@ http
 
 | Parâmetro | Tipo     | Descrição                                                                                                                                   |
 | :-------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
-| email   | bearer | *Obrigatório*. O email ou CPF do cliente, depende de como esta cadastrado no campo "Login:" Sistema_IXC/Cliente/Contato/Central Assinante |
-| senha   | bearer | *Obrigatório*. A senha que esta cadastrada no campo "Senha:" em Sistema_IXC/Cliente/Contato/Central Assinante                             |
+| email   | texto | Email do usuario, usado na função de login 
+| senha   | texto | Senha de usuario, usada na função de login                             
+
+## 
+http
+  POST /usuarios/login
+
+
+| Parâmetro | Tipo     | Descrição                                                                                                                                   |
+| :-------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| email   | texto | Email do usuario, usado na função de login 
+| senha   | texto | Senha de usuario, usada na função de login                             
 
 ## 
 
-#### Retorna os dados de cadastro do cliente/contrato:
+## Categorias
 
 http
-  GET /user/me
+  GET /categorias
 
 
-| Parâmetro | Tipo            | Descrição                                                     |
-| :-------- | :-------------- | :------------------------------------------------------------ |
-| token   | Authorization | *Obrigatório*. O token JWT assinado que foi gerado no login |
+| Parâmetro | Tipo     | Descrição                                                                                                                                   |
+| :-------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+                           
 
 ## 
-
-#### Retorna todos as faturas em aberto do cliente, faturas/pix:
-
 http
-  GET /faturas/abertas
+  POST /categorias
 
 
-| Parâmetro | Tipo            | Descrição                                                     |
-| :-------- | :-------------- | :------------------------------------------------------------ |
-| token   | Authorization | *Obrigatório*. O token JWT assinado que foi gerado no login |
+| Parâmetro | Tipo     | Descrição                                                                                                                                   |
+| :-------- | :------- | :------------------------------------------------------------------------------------------------------------------------------------------ |
+| Authorization   | Bearer | Token retornado da função de login 
+| nome   | texto | Nome da categoria sendo inserida                             
 
 ## 
-
-#### Retorna todos as faturas recebidas do cliente, filtrando por data do pagamento da fatura:
-
-http
-  GET /faturas/recebidas
-
-
-| Parâmetro    | Tipo            | Descrição                                                     |
-| :----------- | :-------------- | :------------------------------------------------------------ |
-| token      | Authorization | *Obrigatório*. O token JWT assinado que foi gerado no login |
-| dataInicio | bearer        | *Obrigatório*. Deve conter a data inicial do filtro         |
-| dataFim    | bearer        | *Obrigatório*. Deve conter a data final do filtro           |
-
-## 
-
-#### Retorna somente o codigo pix das faturas em abertas do cliente:
-
-http
-  GET /faturas/pix
-
-
-| Parâmetro | Tipo            | Descrição                                                     |
-| :-------- | :-------------- | :------------------------------------------------------------ |
-| token   | Authorization | *Obrigatório*. O token JWT assinado que foi gerado no login |
-
-## 
-
-#### Retorna as notas fiscais modelo 21 dos contratos:
-
-http
-  GET /financeiro/notas_fiscais
-
-
-| Parâmetro | Tipo            | Descrição                                                     |
-| :-------- | :-------------- | :------------------------------------------------------------ |
-| token   | Authorization | *Obrigatório*. O token JWT assinado que foi gerado no login |
-
-##
