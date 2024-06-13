@@ -37,7 +37,7 @@ app.use('/imagens',rotaImagens);
 
 //rota nao encontrada
 app.use((req, res, next) => {
-    const erro = new Error('Rota não encontrado');
+    const erro = new Error('Rota não encontrada');
     erro.status = 404;
     next(erro);
 });

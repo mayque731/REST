@@ -37,7 +37,7 @@ router.get('/', produtosController.getProdutos );
 router.post(
     '/', 
     login.obrigatorio,
-    upload.single('produto_imagem'), 
+    upload.single('imagem_produto'), 
     produtosController.postProdutos
 );
 
@@ -45,17 +45,17 @@ router.post(
 router.get('/:id_produto', produtosController.getUmProduto);
 
 //atualizacao de produto
-router.patch('/',login.obrigatorio, produtosController.patchProdutos);
+router.patch('/:id_produto',login.obrigatorio, produtosController.patchProdutos);
     
 
 //exclusao de produto
-router.delete('/',login.obrigatorio, produtosController.deleteProdutos);
+router.delete('/:id_produto',login.obrigatorio, produtosController.deleteProdutos);
 
 //insere imagem de um produto
 router.post(
-    '/:id_produto/produto_imagem',
+    '/:id_produto/imagem',
     login.obrigatorio,
-    upload.single('produto_imagem'),
+    upload.single('imagem'),
     produtosController.postImagem
 );
 

@@ -35,9 +35,9 @@ exports.postProdutos = async (req, res, next) => {
             req.body.nome, 
             req.body.preco, 
             req.file.path,
-            req.body.id_categoria
+            req.body.categoria
         ]);
-        console.log(result.insertId);
+        //console.log(result.insertId);
         const response = {
             mensagem: 'produto inserido com sucesso',
             produtoCriado: {
@@ -45,7 +45,7 @@ exports.postProdutos = async (req, res, next) => {
                  nome: req.body.nome,
                  preco: req.body.preco,
                  imagem_produto: req.file.path,
-                 id_categoria : req.body.id_categoria,
+                 id_categoria : req.body.categoria,
                  request: {
                    tipo: 'GET',
                    descricao: 'Insere um produto',
@@ -96,14 +96,15 @@ exports.getUmProduto = async(req, res, next) => {
 exports.patchProdutos = async (req, res, next) => {
     try{
         const query = `UPDATE produtos 
-                          SET nome          = ?,       
-                              preco         = ?      
-                        WHERE id_produto    = ?`;
+                          SET nome_produto          = ?,       
+                              preco_produto         = ?      
+                        WHERE id_produto            = ?`;
         //const query = 'UPDATE produtos SET nome,preco VALUES(?,?) WHERE id_produto = ?';
             await mysql.execute(query, [
             req.body.nome, 
             req.body.preco, 
-            req.body.id_produto]);
+            req.params.id_produto
+            ]);
 
             const response = {
                 mensagem: 'produto atualizado com sucesso',
@@ -122,6 +123,7 @@ exports.patchProdutos = async (req, res, next) => {
       
        return res.status(201).send(response);
     }catch(error){
+        console.log(error);
         return res.status(500).send({error: error});
     }    
 };
@@ -129,7 +131,7 @@ exports.patchProdutos = async (req, res, next) => {
 exports.deleteProdutos = async (req, res, next) => {
     try{
         const query = 'DELETE FROM produtos WHERE id_produto = ?';
-        await mysql.execute(query, [req.body.id_produto]);
+        await mysql.execute(query, [req.params.id_produto]);
 
         const response = {
             mensagem: 'produto removido com sucesso',
