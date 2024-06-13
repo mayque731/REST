@@ -1,25 +1,25 @@
 ## - API REST
 
-Essa API servira de base para implementação na central de assinante unificada da UNI Internet, nesse momento ela esta preparada para listar informações do cliente, contratos, e financeiro do cliente, com boletos mensal e avulsos, boletos esses que ja terão todas as informações e opções de pagamento, inclusive a opçõe de PIX copia e cola e QRCode.
+API REST desenvolvida como treinamento
+Formato de ecommerce, tratando usuarios, produtos, categorias, pedidos
 
 ##
 
 ## Instalação & Dependencias
+- npm install request jsonwebtoken express bcrypt nodemon mysql morgan ngrok multer
 
 
-1 - npm init -y
-
-2 - npm install request-promise request jsonwebtoken express bcrypt
-
-3 - npm install nodemon -D
-
-
-| Dependencia      | Download                                                     |
+| Dependencia     | Download                                                     |
 | --------------- | ------------------------------------------------------------ |
 | bcrypt          | ![NPM Version](https://img.shields.io/npm/v/bcrypt)          |
 | express         | ![NPM Version](https://img.shields.io/npm/v/express)         |
 | jsonwebtoken    | ![NPM Version](https://img.shields.io/npm/v/jsonwebtoken)    |
 | nodemon         | ![NPM Version](https://img.shields.io/npm/v/nodemon)         |
+| mysql           | ![NPM Version](https://img.shields.io/npm/v/mysql)           |
+| morgan          | ![NPM Version](https://img.shields.io/npm/v/morgan)          |
+| ngrok           | ![NPM Version](https://img.shields.io/npm/v/ngrok)           |
+| multer          | ![NPM Version](https://img.shields.io/npm/v/multer)          |
+
 
 ## 
 
