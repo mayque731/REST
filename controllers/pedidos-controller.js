@@ -49,7 +49,7 @@ exports.postPedidos = async(req, res, next) => {
 
     const queryPedido = "INSERT INTO pedidos (quantidade_pedido, id_produto) VALUES (?,?)";
     const resultPedido = await mysql.execute(queryPedido, [
-      req.body.quantidade,
+      req.body.quantidade_pedido,
       req.body.id_produto,
     ]);
 

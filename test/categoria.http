@@ -7,7 +7,7 @@ Content-Type: application/json
 # Inclui uma nova categoria
 POST http://localhost:3000/categorias
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJlbWFpbCI6ImZyYW4ub2xpdmVpcmFAc291dW5pLmNvbSIsImlhdCI6MTcxODI5MDcwMCwiZXhwIjoxNzE4ODk1NTAwfQ.wcWeaFzao1kwytDuGz_nlo1gbYFlV4Wd3-OajGBii6w
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZF91c3VhcmlvIjoxLCJlbWFpbCI6ImZyYW4ub2xpdmVpcmFAc291dW5pLmNvbSIsImlhdCI6MTcxODI5ODI5OCwiZXhwIjoxNzE4OTAzMDk4fQ.G9ssUZLoBCIO62w-AopcLEfgLehQGYAOFMLir2_6_0M
 
 {
     "nome" : "Itens"

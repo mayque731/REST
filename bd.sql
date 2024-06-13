@@ -1,5 +1,10 @@
-CREATE DATABASE ecommerce2;
-USE ecommerce2;
+CREATE DATABASE ecommerce;
+USE ecommerce;
+
+CREATE TABLE IF NOT EXISTS categorias (
+id_categoria INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+nome_categoria VARCHAR(100) NOT NULL
+);
 
 CREATE TABLE IF NOT EXISTS produtos (
 id_produto INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -26,14 +31,6 @@ senha_usuario VARCHAR(500)
 CREATE TABLE  IF NOT EXISTS imagem_produto (
 id_imagem INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
 id_produto INT NOT NULL,
-caminho_imagem VARCHAR(255)
+caminho_imagem VARCHAR(255),
+FOREIGN KEY (id_produto) REFERENCES produtos (id_produto)
 );
-
-CREATE TABLE IF NOT EXISTS categorias (
-id_categoria INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-nome_categoria VARCHAR(100) NOT NULL
-);
-
-select * from usuarios;
-
-insert into categorias(nome_categoria) values("itens");
