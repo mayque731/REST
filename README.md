@@ -58,6 +58,7 @@ Formato de ecommerce, tratando usuarios, produtos, categorias, pedidos
 #├── README.md
 #└── server.js
 ##
+```
 │   .env
 │   .gitignore
 │   app.js
@@ -97,6 +98,7 @@ Formato de ecommerce, tratando usuarios, produtos, categorias, pedidos
 │       usuario.http
 │
 └───uploads
+```
 ##
 ## Documentação da API
 ## Usuarios
