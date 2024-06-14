@@ -58,7 +58,46 @@ Formato de ecommerce, tratando usuarios, produtos, categorias, pedidos
 ├── package.json
 ├── README.md
 └── server.js
-
+##
+|   .env
+|   .gitignore
+|   app.js
+|   ecommerce.session.sql
+|   mysql.js
+|   nodemon.json
+|   package-lock.json
+|   package.json
+|   README.md
+|   server.js
+|
++---controllers
+|       categorias-controller.js
+|       imagens-controller.js
+|       pedidos-controller.js
+|       produtos-controller.js
+|       usuarios-controller.js
+|
++---database
+|       bd.sql
+|       db_version.sql
+|
++---middleware
+|       login.js
+|
++---routes
+|       categorias.js
+|       imagens.js
+|       pedidos.js
+|       produtos.js
+|       usuarios.js
+|
++---test
+|       categoria.http
+|       pedido.http
+|       produto.http
+|       usuario.http
+|
+\---uploads
 ##
 ## Documentação da API
 ## Usuarios
