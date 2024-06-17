@@ -1,8 +1,13 @@
-## - API REST
-
+## - API REST Ecommerce
+```
 API REST desenvolvida como treinamento
 Formato de ecommerce, tratando usuarios, produtos, categorias, pedidos
 
+Baseado no curso de Fernando Silva Maransatto
+Link youtube: https://youtu.be/d_vXgK4uZJM?si=NTphlVZ0i6gQ1D1a
+Link repositorio: https://github.com/Maransatto/rest-api-node-js
+
+```
 ##
 
 ## Instalação & Dependencias
